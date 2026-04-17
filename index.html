@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-imaginando · Estrategia de Personas 2026–2030 · Oxiquim</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,600;10..48,700;10..48,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1179C2;--blue-lt:#EEF6FD;--blue-mid:#C4DEFA;--blue-dk:#0B4F87;
+  --teal:#0D7B6E;--teal-lt:#E6F7F5;--teal-mid:#B2E0DA;--teal-dk:#075A50;
+  --amber:#D97706;--amber-lt:#FEF9EE;--rose:#DC2626;--rose-lt:#FEF2F2;
+  --indigo:#4338CA;--indigo-lt:#EEF2FF;--green:#16A34A;--green-lt:#F0FDF4;
+  --purple:#7C3AED;--purple-lt:#F5F3FF;--slate:#64748B;
+  --page:#F3F6FA;--white:#FFF;--text:#0D1B2A;--sub:#4A6480;--border:#DDE8F3;--r:12px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--page);color:var(--text)}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px 72px}
+
+.hero{padding:38px 0 24px;text-align:center;animation:fd .6s ease both}
+.eyebrow{font-family:'Bricolage Grotesque',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(22px,3.6vw,38px);font-weight:800;line-height:1.1;color:var(--text);margin-bottom:10px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:13.5px;color:var(--sub);max-width:500px;margin:0 auto 20px;line-height:1.7}
+.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 13px;border-radius:30px;font-size:11px;font-weight:600;border:1.5px solid}
+.p1{background:var(--blue-lt);color:var(--blue-dk);border-color:var(--blue-mid)}
+.p2{background:var(--teal-lt);color:var(--teal-dk);border-color:var(--teal-mid)}
+.p3{background:var(--amber-lt);color:#92400E;border-color:#FDE68A}
+.dot{width:6px;height:6px;border-radius:50%;animation:blink 1.8s ease-in-out infinite}
+.p1 .dot{background:var(--blue)} .p2 .dot{background:var(--teal);animation-delay:.5s}
+
+@keyframes fd{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+@keyframes fu{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes si{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.tabs-wrap{position:sticky;top:12px;z-index:50;margin-bottom:26px;animation:fu .6s .2s ease both}
+.tabs-nav{display:flex;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:4px;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.tb{flex:1;padding:11px 10px;border:none;background:transparent;border-radius:10px;font-family:'Bricolage Grotesque',sans-serif;font-size:12.5px;font-weight:700;cursor:pointer;transition:all .2s;color:var(--sub);display:flex;align-items:center;justify-content:center;gap:8px}
+.tb:not(.a1):not(.a2):hover{background:var(--page);color:var(--text)}
+.tb.a1{background:linear-gradient(135deg,var(--blue-dk),var(--blue));color:#fff;box-shadow:0 3px 14px rgba(17,121,194,.3)}
+.tb.a2{background:linear-gradient(135deg,var(--teal-dk),var(--teal));color:#fff;box-shadow:0 3px 14px rgba(13,123,110,.3)}
+.tbg{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,.2)}
+.tb:not(.a1):not(.a2) .tbg{background:var(--border);color:var(--sub)}
+
+.panel{display:none}
+.panel.on{display:block;animation:si .3s ease both}
+
+.dhdr{border-radius:14px;padding:22px 26px;margin-bottom:18px;position:relative;overflow:hidden}
+.dhdr.d1{background:linear-gradient(135deg,#0B4F87,#1179C2 55%,#3B9EE8)}
+.dhdr.d2{background:linear-gradient(135deg,#075A50,#0D7B6E 55%,#16B5A0)}
+.dhdr::after{content:'';position:absolute;right:-20px;top:-20px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.07)}
+.dhdr-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+.dnum{font-family:'Bricolage Grotesque',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,.18);color:#fff;flex-shrink:0;margin-top:2px}
+.dhdr h2{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;color:#fff;line-height:1.2}
+.dhdr p{font-size:12.5px;color:rgba(255,255,255,.72);margin-top:3px;line-height:1.5}
+.dmetas{display:flex;gap:8px;flex-wrap:wrap}
+.dm{background:rgba(255,255,255,.15);border-radius:7px;padding:5px 11px;font-size:11.5px;color:rgba(255,255,255,.9);font-weight:600}
+
+.divider{display:flex;align-items:center;gap:12px;margin:24px 0 18px}
+.divider-line{flex:1;height:1px;background:var(--border)}
+.divider-badge{font-family:'Bricolage Grotesque',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:25px;white-space:nowrap}
+.dm-am{background:var(--blue-lt);color:var(--blue-dk);border:1.5px solid var(--blue-mid)}
+.dm-lu{background:var(--amber-lt);color:#92400E;border:1.5px solid #FDE68A}
+.dm-pm{background:var(--purple-lt);color:#4C1D95;border:1.5px solid #DDD6FE}
+
+.sh{display:flex;align-items:center;gap:9px;margin:6px 0 13px}
+.sh-pip{width:3px;height:24px;border-radius:3px;flex-shrink:0}
+.pip-b{background:var(--blue)} .pip-t{background:var(--teal)} .pip-p{background:var(--purple)}
+.sh h3{font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;color:var(--text)}
+.sh p{font-size:11.5px;color:var(--sub);margin-top:1px}
+
+.tl{position:relative;padding-left:46px;margin-bottom:4px}
+.tl::before{content:'';position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:var(--border);border-radius:2px}
+.ti{position:relative;margin-bottom:11px;opacity:0;transform:translateX(-7px);transition:opacity .38s,transform .38s}
+.ti.v{opacity:1;transform:none}
+.tdw{position:absolute;left:-42px;top:20px}
+.td{width:11px;height:11px;border-radius:50%;background:var(--white);border:2.5px solid;transition:all .18s}
+.ti:hover .td{transform:scale(1.3)}
+.td.cb{border-color:var(--blue)} .ti:hover .td.cb{background:var(--blue)}
+.td.ca{border-color:var(--amber)} .ti:hover .td.ca{background:var(--amber)}
+.td.cr{border-color:var(--rose)} .ti:hover .td.cr{background:var(--rose)}
+.td.cg{border-color:var(--green)} .ti:hover .td.cg{background:var(--green)}
+.td.cp{border-color:var(--purple)} .ti:hover .td.cp{background:var(--purple)}
+.td.ct{border-color:var(--teal)} .ti:hover .td.ct{background:var(--teal)}
+.td.ci{border-color:var(--indigo)} .ti:hover .td.ci{background:var(--indigo)}
+.td.cs{border-color:var(--slate)} .ti:hover .td.cs{background:var(--slate)}
+
+.c{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:17px 20px;transition:all .2s;position:relative;overflow:hidden}
+.c::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.c.cb::before{background:var(--blue)} .c.ca::before{background:var(--amber)}
+.c.cr::before{background:var(--rose)} .c.cg::before{background:var(--green)}
+.c.cp::before{background:var(--purple)} .c.ct::before{background:var(--teal)}
+.c.ci::before{background:var(--indigo)} .c.cs::before{background:var(--slate)}
+.c:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.07)}
+
+.ct-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}
+.ctitle{font-family:'Bricolage Grotesque',sans-serif;font-size:14.5px;font-weight:700;color:var(--text);line-height:1.3}
+.chip{font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 9px;border-radius:16px;white-space:nowrap;flex-shrink:0}
+.kb{background:var(--blue-lt);color:var(--blue-dk)} .ka{background:var(--amber-lt);color:#92400E}
+.kr{background:var(--rose-lt);color:#991B1B} .kg{background:var(--green-lt);color:#14532D}
+.kp{background:var(--purple-lt);color:#4C1D95} .kt{background:var(--teal-lt);color:var(--teal-dk)}
+.ki{background:var(--indigo-lt);color:#312E81} .ks{background:#F1F5F9;color:#334155}
+
+.tr{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.tm{font-size:12px;font-weight:700;color:var(--blue)}
+.tm.tc{color:var(--teal)}
+.dr{font-size:11.5px;color:var(--sub)}
+.dr::before{content:'·';margin-right:5px;color:var(--border)}
+
+.cb-text{font-size:13px;line-height:1.68;color:var(--sub)}
+.cb-text strong{color:var(--text);font-weight:600}
+.cb-text em{font-style:italic}
+
+.obj{margin-top:10px;padding:8px 12px;border-left:3px solid;border-radius:0 7px 7px 0;font-size:12px;line-height:1.6;font-weight:500}
+.obj::before{content:'Objetivo: ';font-weight:700;font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:2px}
+.ob{background:var(--blue-lt);border-color:var(--blue);color:var(--blue-dk)} .ob::before{color:var(--blue)}
+.oa{background:var(--amber-lt);border-color:var(--amber);color:#78350F} .oa::before{color:var(--amber)}
+.or{background:var(--rose-lt);border-color:var(--rose);color:#991B1B} .or::before{color:var(--rose)}
+.og{background:var(--green-lt);border-color:var(--green);color:#14532D} .og::before{color:var(--green)}
+.op{background:var(--purple-lt);border-color:var(--purple);color:#4C1D95} .op::before{color:var(--purple)}
+.ot{background:var(--teal-lt);border-color:var(--teal);color:var(--teal-dk)} .ot::before{color:var(--teal)}
+.oi{background:var(--indigo-lt);border-color:var(--indigo);color:#312E81} .oi::before{color:var(--indigo)}
+
+.el{display:inline-flex;align-items:center;gap:4px;margin-top:9px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:16px;border:1px solid}
+.el::before{content:'EL ·';font-size:8px;opacity:.7}
+.el-b{background:var(--blue-lt);color:var(--blue-dk);border-color:var(--blue-mid)}
+.el-t{background:var(--teal-lt);color:var(--teal-dk);border-color:var(--teal-mid)}
+.el-a{background:var(--amber-lt);color:#92400E;border-color:#FDE68A}
+.el-r{background:var(--rose-lt);color:#991B1B;border-color:#FECACA}
+.el-p{background:var(--purple-lt);color:#4C1D95;border-color:#DDD6FE}
+.el-g{background:var(--green-lt);color:#14532D;border-color:#BBF7D0}
+.el-i{background:var(--indigo-lt);color:#312E81;border-color:#C7D2FE}
+
+.plen{display:inline-flex;align-items:center;gap:5px;margin-top:9px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:16px;background:var(--indigo-lt);color:#312E81;border:1px solid #C7D2FE}
+.plen::before{content:'▶';font-size:7px}
+
+.anc{margin-top:9px;padding:7px 11px;background:#FFFBEB;border:1px solid #FDE68A;border-left:3px solid var(--amber);border-radius:0 7px 7px 0;font-size:11.5px;color:#78350F;line-height:1.55}
+.anc strong{color:#451A03;font-weight:700;font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:2px}
+
+.grupos{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
+.grupo{background:var(--page);border:1px solid var(--border);border-radius:9px;padding:11px 14px}
+.gtag{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.gt1{color:var(--amber)} .gt2{color:var(--purple)}
+.gbody{font-size:12px;color:var(--sub);line-height:1.6}
+
+/* PLANES CARDS */
+.planes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.plan-card{background:var(--page);border:1px solid var(--border);border-radius:10px;padding:14px 16px;border-top:3px solid}
+.plan-card.p-blue{border-top-color:var(--blue)}
+.plan-card.p-teal{border-top-color:var(--teal)}
+.plan-num{font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub);margin-bottom:5px}
+.plan-title{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3}
+.plan-items{font-size:11.5px;color:var(--sub);line-height:1.7}
+
+/* ORGANIGRAMA */
+.org-wrap{margin-top:14px;background:var(--page);border:1px solid var(--border);border-radius:10px;padding:18px}
+.org-title{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--sub);margin-bottom:14px;text-align:center}
+.org-top{display:flex;justify-content:center;margin-bottom:8px}
+.org-box{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:9px 16px;text-align:center;font-size:12px;font-weight:600;color:var(--text);position:relative}
+.org-box.main{background:var(--blue);border-color:var(--blue);color:#fff;font-size:13px;min-width:200px}
+.org-box.sub{min-width:150px}
+.org-connector-v{width:2px;height:16px;background:var(--border);margin:0 auto}
+.org-connector-h{display:flex;align-items:flex-start;gap:0;justify-content:center;margin-top:0}
+.org-branch{display:flex;flex-direction:column;align-items:center;flex:1;position:relative}
+.org-branch::before{content:'';position:absolute;top:0;left:50%;width:50%;height:2px;background:var(--border)}
+.org-branch:last-child::before{left:0;width:50%}
+.org-branch:first-child::before{display:none}
+.org-h-line{width:100%;height:2px;background:var(--border);position:relative}
+.org-mid{display:flex;justify-content:center;gap:16px;margin-top:0}
+.org-col{display:flex;flex-direction:column;align-items:center;gap:8px}
+.org-line-down{width:2px;height:14px;background:var(--border)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:28px 0 36px;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+.stats.v{opacity:1;transform:none}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:16px 12px;text-align:center}
+.stat.a1{background:var(--blue);border-color:var(--blue)} .stat.a2{background:var(--teal);border-color:var(--teal)}
+.sn{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;line-height:1;color:var(--text);margin-bottom:4px}
+.sn .u{font-size:12px;font-weight:500;color:var(--sub)}
+.stat.a1 .sn,.stat.a2 .sn{color:#fff} .stat.a1 .sn .u,.stat.a2 .sn .u{color:rgba(255,255,255,.65)}
+.sl{font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--sub)}
+.stat.a1 .sl,.stat.a2 .sl{color:rgba(255,255,255,.72)}
+
+.footer{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--border)}
+.ft{font-size:10.5px;color:var(--sub);text-align:right;line-height:1.6}
+
+@media(max-width:600px){
+  .grupos,.planes{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .tl{padding-left:38px}
+  .tdw{left:-34px}
+  .dhdr-row{flex-direction:column;gap:8px}
+  .footer{flex-direction:column;gap:10px;text-align:center}
+  .ft{text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Oxiquim · Gerencia de Personas</p>
+  <h1><em>Co-imaginando</em> · Estrategia de Personas <em>2026–2030</em></h1>
+  <p class="hero-sub">Día 1: apertura emocional y estrategia (coach 12:00–14:00). Día 2: propósito, estructura y cierre.</p>
+  <div class="pills">
+    <span class="pill p1"><span class="dot"></span>Día 1 · 12:00–18:30</span>
+    <span class="pill p2"><span class="dot"></span>Día 2 · 09:00–13:00</span>
+    <span class="pill p3">Estructuras Liberadoras</span>
+  </div>
+</header>
+
+<div class="tabs-wrap">
+  <div class="tabs-nav">
+    <button class="tb a1" onclick="sw(1)">Día 1 — Emocional &amp; estrategia <span class="tbg">12:00–18:30</span></button>
+    <button class="tb" onclick="sw(2)">Día 2 — Estrategia &amp; conversación <span class="tbg">09:00–13:00</span></button>
+  </div>
+</div>
+
+
+<!-- ═══ DÍA 1 ═══ -->
+<div class="panel on" id="p1">
+
+<div class="dhdr d1">
+  <div class="dhdr-row">
+    <span class="dnum">Día 1</span>
+    <div>
+      <h2>Apertura emocional + Estrategia de Personas</h2>
+      <p>12:00–14:00 con coach: apertura emocional, tensiones y propósito. 14:00–18:30 equipo GPER: contexto Oxiquim, exploración de planes, tareas, KPIs, responsables y preguntas de cierre.</p>
+    </div>
+  </div>
+  <div class="dmetas">
+    <span class="dm">~6.5 horas</span>
+    <span class="dm">Equipo GPER</span>
+    <span class="dm">Coach 12:00–14:00</span>
+    <span class="dm">10 bloques</span>
+  </div>
+</div>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-badge dm-am">Con Coach · 12:00–14:00</span>
+  <div class="divider-line"></div>
+</div>
+
+<div class="sh"><div class="sh-pip pip-b"></div><div><h3>Apertura emocional</h3><p>Facilitado por coach externa</p></div></div>
+
+<div class="tl">
+
+  <div class="ti">
+    <div class="tdw"><div class="td cb"></div></div>
+    <div class="c cb">
+      <div class="ct-row"><div class="ctitle">Bloque coach · Apertura emocional</div><span class="chip kb">Coach</span></div>
+      <div class="tr"><span class="tm">12:00 – 14:00</span><span class="dr">120 min</span></div>
+      <div class="cb-text">Espacio facilitado íntegramente por la coach externa. La dinámica y metodología quedan a su criterio.</div>
+      <div class="obj ob">Liberar tensiones, conectar con el propósito personal y generar seguridad psicológica para el trabajo estratégico de la tarde.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="divider">
+  <div class="divider-line"></div>
+  <span class="divider-badge dm-lu">Almuerzo · 14:00–14:30</span>
+  <div class="divider-line"></div>
+</div>
+
+<div class="divider" style="margin-top:4px">
+  <div class="divider-line"></div>
+  <span class="divider-badge dm-pm">Tarde · 14:30–18:30</span>
+  <div class="divider-line"></div>
+</div>
+
+<div class="sh"><div class="sh-pip pip-p"></div><div><h3>Estrategia Oxiquim → Propósito GPER → Planes → Estrategia 2026–2030 → Tareas → Cierre</h3><p>Secuencia conducida por el equipo GPER (sin coach)</p></div></div>
+
+<div class="tl">
+
+  <div class="ti">
+    <div class="tdw"><div class="td cb"></div></div>
+    <div class="c cb">
+      <div class="ct-row"><div class="ctitle">Estrategia Oxiquim · Narrativa, pilares y Pilar 3</div><span class="chip kb">Contexto</span></div>
+      <div class="tr"><span class="tm">14:30 – 15:00</span><span class="dr">30 min</span></div>
+      <div class="cb-text">Álvaro presenta la estrategia completa de Oxiquim en palabras — sin indicadores ni datos duros. Relato: propósito, visión a 2030, internacionalización latinoamericana. Nombra todos los pilares y aterriza: <em>"Como Gerencia de Personas, nos hacemos cargo del Pilar 3 — [nombre declarado]."</em></div>
+      <div class="obj ob">Que el equipo entienda el marco estratégico completo de la empresa y sepa cuál es el pilar que le corresponde a Personas.</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td cp"></div></div>
+    <div class="c cp">
+      <div class="ct-row"><div class="ctitle">¿Cuál es el propósito de nuestra Gerencia de Personas?</div><span class="chip kp">Propósito</span></div>
+      <div class="tr"><span class="tm">15:00 – 15:20</span><span class="dr">20 min</span></div>
+      <div class="cb-text">Recién presentado el Pilar 3, se lanza la primera pregunta al equipo: <em>"¿Cuál es el propósito de nuestra Gerencia de Personas?"</em><br><br>
+        Cada persona escribe en un post-it o tarjeta — respuesta individual, sin discutir todavía. Se pegan en un panel. El facilitador las lee en voz alta y las deja visibles para el cierre del día.</div>
+      <div class="obj op">Capturar el propósito "antes del camino" — se comparará con la respuesta revisada al final del día para mostrar el aprendizaje recorrido.</div>
+      <div class="el el-p">Post-it individual → panel colectivo</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td cg"></div></div>
+    <div class="c cg">
+      <div class="ct-row"><div class="ctitle">¿Qué estrategia debería tener Personas para responder al Pilar 3?</div><span class="chip kg">Exploración</span></div>
+      <div class="tr"><span class="tm">15:20 – 15:50</span><span class="dr">30 min</span></div>
+      <div class="cb-text">Trabajo liviano, por encima. En grupos de 2–3, el equipo anota qué planes o líneas estratégicas debería tener la Gerencia de Personas para apalancar el Pilar 3. Sin profundidad — se busca lo que sale de manera natural.<br><br>
+        Puesta en común rápida (5 min por grupo). El facilitador recoge sin cerrar.</div>
+      <div class="obj og">Que el equipo active su pensamiento estratégico antes de ver la estrategia real. Lo que piensen ahora será el contraste con lo que viene.</div>
+      <div class="el el-g">Mentimeter o post-its por grupo</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td ct"></div></div>
+    <div class="c ct">
+      <div class="ct-row"><div class="ctitle">Presentación · Estrategia de Personas 2026–2030</div><span class="chip kt">Presentación</span></div>
+      <div class="tr"><span class="tm">15:50 – 16:30</span><span class="dr">40 min</span></div>
+      <div class="cb-text">Álvaro presenta la estrategia real de la Gerencia de Personas con narrativa: <em>"¿Saben qué? Así trabajamos nosotros también. Empezamos con 13 líneas de trabajo… llegamos a 11, a 9, a 7, y finalmente a 2. No eliminamos nada — solo fuimos refundiendo."</em><br><br>
+        Se presenta el proceso completo y se revelan los <strong>2 Planes de Acción</strong> que componen la estrategia. ¿Qué propusieron ellos antes? ¿Qué se parece, qué se aleja? Momento de contraste breve.</div>
+      <div class="obj ot">Que el equipo entienda los 2 planes reales, la historia detrás y la lógica de condensación. El contraste con lo que pensaron antes refuerza el aprendizaje.</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td cs"></div></div>
+    <div class="c cs">
+      <div class="ct-row"><div class="ctitle">Pausa</div><span class="chip ks">Descanso</span></div>
+      <div class="tr"><span class="tm">16:30 – 16:45</span><span class="dr">15 min</span></div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td ca"></div></div>
+    <div class="c ca">
+      <div class="ct-row"><div class="ctitle">Tareas · ¿Cómo apalancar los 2 Planes? Tareas e indicadores</div><span class="chip ka">Trabajo</span></div>
+      <div class="tr"><span class="tm">16:45 – 18:00</span><span class="dr">75 min</span></div>
+      <div class="cb-text">En grupos, el equipo trabaja las tareas e indicadores (KPIs) que hacen realidad los 2 planes de acción.<br><br>
+        <strong>Fase 1 — Sin ayuda · 15 min:</strong> cada grupo define libremente qué tareas cree necesarias para cada plan. Post-its o papel.<br>
+        <strong>Fase 2 — Con listado ampliado · 20 min:</strong> se entrega impreso un listado con las tareas reales <em>más varias adicionales</em>. El grupo trabaja con ese insumo, filtrando las que le hacen sentido.<br>
+        <strong>Fase 3 — Match · 10 min:</strong> se revelan las tareas reales. ¿Cuántas coincidieron? ¿Cuál fue la diferencia?<br>
+        <strong>Fase 4 — Responsables · 30 min:</strong> con las tareas y KPIs reales sobre la mesa, el equipo se autoorganiza: <em>"¿Quién quiere liderar? ¿Quién quiere apoyar?"</em> Cada tarea queda con un responsable y un apoyo declarado.</div>
+      <div class="obj oa">Que el equipo comprenda las tareas reales, vea cuánto ya intuían, y se ubique con nombre propio en la estrategia.</div>
+      <div class="el el-a">Post-its por fase · listado impreso · 1-2-4-All (6)</div>
+      <div class="anc"><strong>Nota facilitador</strong> El listado ampliado debe tener claramente más ítems que los reales. Las tareas extras no se eliminan de golpe — se retiran gradualmente según avance el grupo.</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td cp"></div></div>
+    <div class="c cp">
+      <div class="ct-row"><div class="ctitle">Revisitar el propósito · ¿Cambió algo?</div><span class="chip kp">Reflexión</span></div>
+      <div class="tr"><span class="tm">18:00 – 18:20</span><span class="dr">20 min</span></div>
+      <div class="cb-text">Se recupera el panel de post-its del propósito que escribió el equipo al inicio de la tarde. El facilitador los lee uno a uno y pregunta: <em>"¿Cambiarías algo de lo que escribiste? ¿Qué agregarías o quitarías ahora, después de haber vivido este camino?"</em><br><br>
+        El equipo responde brevemente. Las respuestas revisadas quedan en el panel junto a las originales — insumo para el Día 2.</div>
+      <div class="obj op">Mostrar el contraste entre el propósito etéreo del inicio y el propósito más aterrizado post-camino. Ese delta es el aprendizaje del día.</div>
+      <div class="el el-p">What, So What, Now What — W³</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td ct"></div></div>
+    <div class="c ct">
+      <div class="ct-row"><div class="ctitle">Cierre del día · 3 preguntas para mañana</div><span class="chip kt">Cierre</span></div>
+      <div class="tr"><span class="tm">18:20 – 18:30</span><span class="dr">10 min</span></div>
+      <div class="cb-text">Álvaro cierra en 10 minutos. Planta las 3 preguntas que abrirán el Día 2:<br><br>
+        <em>"1. ¿Cuál es el propósito de la Gerencia de Personas?"</em><br>
+        <em>"2. ¿Qué capacidades tenemos como equipo?"</em><br>
+        <em>"3. ¿Cómo debería ser nuestra estructura de trabajo de cara al cumplimiento de la estrategia?"</em><br><br>
+        Refléxiónenlas esta noche. Mañana abrimos con esas respuestas.</div>
+      <div class="obj ot">Sembrar las preguntas clave para el Día 2 y cerrar el día con energía hacia el asado.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="stats" id="s1">
+  <div class="stat"><div class="sn">~6.5<span class="u"> hrs</span></div><div class="sl">Jornada</div></div>
+  <div class="stat a1"><div class="sn">11<span class="u"> blq</span></div><div class="sl">Actividades</div></div>
+  <div class="stat"><div class="sn">Coach<span class="u"> ×2h</span></div><div class="sl">12:00–14:00</div></div>
+  <div class="stat"><div class="sn">5<span class="u"> EL</span></div><div class="sl">Estructuras liberadoras</div></div>
+</div>
+
+</div><!-- /p1 -->
+
+
+<!-- ═══ DÍA 2 ═══ -->
+<div class="panel" id="p2">
+
+<div class="dhdr d2">
+  <div class="dhdr-row">
+    <span class="dnum">Día 2 · AM</span>
+    <div>
+      <h2>Retomar · Trabajar las preguntas del Día 1</h2>
+      <p>Propósito, capacidades, roles y estructura operativa.</p>
+    </div>
+  </div>
+  <div class="dmetas">
+    <span class="dm">4 horas</span>
+    <span class="dm">Equipo GPER</span>
+    <span class="dm">6 bloques</span>
+    <span class="dm">3 Estructuras Liberadoras</span>
+  </div>
+</div>
+
+<div class="sh"><div class="sh-pip pip-t"></div><div><h3>Retomar el Día 1</h3></div></div>
+
+<div class="tl">
+
+  <div class="ti">
+    <div class="tdw"><div class="td ct"></div></div>
+    <div class="c ct">
+      <div class="ct-row"><div class="ctitle">Check-in · ¿Con qué reflexión llegas?</div><span class="chip kt">Apertura</span></div>
+      <div class="tr"><span class="tm tc">09:00 – 09:15</span><span class="dr">15 min</span></div>
+      <div class="cb-text">Igual que el día anterior: 1 min por persona. Una reflexión o imagen que surge del trabajo de ayer.</div>
+      <div class="obj ot">Reconectar al equipo desde el mismo registro del Día 1.</div>
+      <div class="el el-t">Check-in / Impromptu Networking</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td cb"></div></div>
+    <div class="c cb">
+      <div class="ct-row"><div class="ctitle">Retomar y trabajar las preguntas del Día 1</div><span class="chip kb">Trabajo</span></div>
+      <div class="tr"><span class="tm tc">09:15 – 10:30</span><span class="dr">75 min</span></div>
+      <div class="cb-text">El facilitador presenta las 3 preguntas que quedaron abiertas el día anterior y el equipo las trabaja en grupos:<br><br>
+        <strong>1.</strong> <em>¿En base a las tareas de la estrategia, cambia nuestro propósito como Gerencia de Personas?</em><br>
+        <strong>2.</strong> <em>¿Cuáles son nuestras capacidades? ¿Y las de mis pares?</em><br>
+        <strong>3.</strong> <em>¿Estamos bien en roles y funciones?</em> — en el contexto de cómo nos hacemos operativos y cómo llevamos adelante la estrategia.<br><br>
+        Puesta en común: cada grupo comparte su respuesta a cada pregunta.
+      </div>
+      <div class="obj ob">Que el equipo cierre la reflexión iniciada el día anterior y defina colectivamente propósito, capacidades y operatividad.</div>
+      <div class="el el-b">1-2-4-All (6)</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="sh" style="margin-top:18px"><div class="sh-pip pip-t"></div><div><h3>Estructura, acoplamiento y cierre</h3><p>Organigrama 2026–2030 · Reflexión final</p></div></div>
+
+<div class="tl">
+
+  <div class="ti">
+    <div class="tdw"><div class="td cs"></div></div>
+    <div class="c cs">
+      <div class="ct-row"><div class="ctitle">Pausa</div><span class="chip ks">Descanso</span></div>
+      <div class="tr"><span class="tm tc">10:30 – 10:45</span><span class="dr">15 min</span></div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td ci"></div></div>
+    <div class="c ci">
+      <div class="ct-row"><div class="ctitle">Presentación · Estructura y organigrama 2026–2030</div><span class="chip ki">Estructura</span></div>
+      <div class="tr"><span class="tm tc">10:45 – 11:30</span><span class="dr">45 min</span></div>
+      <div class="cb-text">Álvaro presenta la estructura de la Gerencia de Personas en tres momentos:<br><br>
+        <strong>1. Estructura actual</strong> — cómo está conformado el equipo hoy.<br>
+        <strong>2. Transición</strong> — qué cambios van a ocurrir y por qué (el rol del generalista pasa a Business Partner: más estratégico, en el piso con trabajadores, divisionales, primera línea).<br>
+        <strong>3. Estructura futura 2026–2030</strong> — a qué se quiere llegar.<br><br>
+        La brecha clave: de un rol generalista operativo a un <em>Business Partner</em> estratégico.</div>
+      <div class="obj oi">Que el equipo entienda la estructura formal, la dirección del cambio y la brecha que hay que cerrar.</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td ca"></div></div>
+    <div class="c ca">
+      <div class="ct-row"><div class="ctitle">¿Cómo se acopla la estructura a la estrategia?</div><span class="chip ka">Reflexión</span></div>
+      <div class="tr"><span class="tm tc">11:30 – 12:15</span><span class="dr">45 min</span></div>
+      <div class="cb-text">En grupos, se trabaja la conexión entre la estructura presentada y los 2 planes de acción: ¿cómo se organiza el equipo para ejecutar la estrategia? ¿Los roles y funciones están alineados con lo que hay que hacer?<br><br>
+        Cada grupo trabaja con la estructura impresa y los planes de acción sobre la mesa. Anotan en post-its las conexiones, brechas y ajustes que identifican. Puesta en común al cierre.</div>
+      <div class="obj oa">Conectar la estructura organizacional con la operatividad de la estrategia e identificar alineaciones y brechas.</div>
+      <div class="el el-a">1-2-4-All (6) · Post-its · Estructura impresa</div>
+    </div>
+  </div>
+
+  <div class="ti">
+    <div class="tdw"><div class="td ct"></div></div>
+    <div class="c ct">
+      <div class="ct-row"><div class="ctitle">Reflexión y cierre final</div><span class="chip kt">Cierre</span></div>
+      <div class="tr"><span class="tm tc">12:15 – 13:00</span><span class="dr">45 min</span></div>
+      <div class="cb-text">Espacio abierto para complementar, ajustar y cerrar. Cada persona comparte una reflexión o compromiso del proceso de los dos días. El liderazgo cierra con los próximos pasos.</div>
+      <div class="plen">Plenario · Día 2</div>
+      <div class="obj ot">Cerrar el ciclo de los dos días con claridad sobre el camino y compromiso individual con la estrategia.</div>
+      <div class="el el-t">What, So What, Now What — W³</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="stats" id="s2">
+  <div class="stat"><div class="sn">4<span class="u"> hrs</span></div><div class="sl">Media jornada</div></div>
+  <div class="stat a2"><div class="sn">6<span class="u"> blq</span></div><div class="sl">Actividades</div></div>
+  <div class="stat"><div class="sn">3<span class="u"> EL</span></div><div class="sl">Estructuras liberadoras</div></div>
+  <div class="stat"><div class="sn">BP<span class="u"> →</span></div><div class="sl">Business Partner</div></div>
+</div>
+
+</div><!-- /p2 -->
+
+<footer class="footer">
+  <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:700;color:var(--blue);opacity:.55">Oxiquim</div>
+  <div class="ft">Co-imaginando · Estrategia de Personas 2026–2030<br>Jornada de dos días</div>
+</footer>
+
+</div>
+
+<script>
+function sw(n){
+  document.querySelectorAll('.tb').forEach((b,i)=>{b.className='tb'+(i+1===n?' a'+n:'')});
+  document.querySelectorAll('.panel').forEach((p,i)=>{
+    p.classList.toggle('on',i+1===n);
+    if(i+1===n) setTimeout(()=>obs(p),50);
+  });
+}
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.07});
+function obs(r){(r||document).querySelectorAll('.ti,.stats').forEach((el,i)=>{el.style.transitionDelay=(i*.04)+'s';io.observe(el)})}
+obs();
+</script>
+</body>
+</html>
